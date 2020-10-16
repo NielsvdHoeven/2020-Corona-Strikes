@@ -33,7 +33,7 @@ public class Human extends AnimatedSpriteObject implements ICollidableWithGameOb
         gameObjectCollisionOccurred(world.getGameObjectItems());
 
         if (infected) {
-            setCurrentFrameIndex(3);
+            setCurrentFrameIndex(1);
         }
     }
 

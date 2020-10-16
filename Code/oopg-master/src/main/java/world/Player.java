@@ -17,6 +17,8 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
     private boolean aanHetSpringen;
     private Collision collision = new Collision();
     private int nPotions = 3;
+    private int nLives = 3;
+    private int nBesmet = 0;
 
     public Player(WorldApp world) {
         // Met `.concat()` plak je 2 strings aan elkaar.
@@ -108,7 +110,6 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
                 }
             }
         }
-
     }
 
     @Override
@@ -117,10 +118,18 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
             if (g instanceof Sanitizer) {
                 if (collision.checkCollision(g, this)) {
                     System.out.println("sanitizer detected, resetting position");
+                    x = 0;
+                    y = 0;
+                    nLives--;
+                    System.out.println(nLives);
+                }
+            }
+            if(g instanceof Human){
+                if(collision.checkCollision(g, this)){
+
                 }
             }
         }
     }
-
 }
 

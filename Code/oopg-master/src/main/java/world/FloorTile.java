@@ -8,6 +8,4 @@ public class FloorTile extends Tile {
     public FloorTile(Sprite sprite) {
         super(sprite);
     }
-
-
 }
