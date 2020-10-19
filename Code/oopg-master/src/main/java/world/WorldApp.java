@@ -1,6 +1,7 @@
 package world;
 
 // deze 3 classes moet je geimporteerd hebben om het te laten werken.
+
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.TileMap;
@@ -51,13 +52,13 @@ public class WorldApp extends GameEngine {
         setView(view);
 
         size(worldWidth, worldHeight);
-        initializeStandardTileMap();
+        maps.initializeStandardTileMap();
     }
 
     @Override
     public void update() {
         maps.setMap();
-        initializeTileMap();
+        maps.initializeTileMap();
         hiddenPlatform = knop.getPlatform();
     }
 
@@ -68,33 +69,6 @@ public class WorldApp extends GameEngine {
 
     public void keyReleased() {
         player.keyReleased();
-    }
-
-    private void initializeTileMap() {
-        // Load Sprites
-        Sprite floorSprite = new Sprite(this.MEDIA_URL.concat("platformPack_tile040.png"));
-        // Create tile types with the right Tile class and sprite
-        TileType<FloorTile> floorTileType = new TileType<>(FloorTile.class, floorSprite);
-
-        TileType[] tileTypes = {floorTileType};
-        int tileSize = 50;
-        int tilesMap[][] = maps.getMap();
-        tileMap = new TileMap(tileSize, tileTypes, tilesMap);
-    }
-
-    private void initializeStandardTileMap() {
-        // Load Sprites
-        Sprite floorSprite = new Sprite(this.MEDIA_URL.concat("platformPack_tile040.png"));
-        // Create tile types with the right Tile class and sprite
-        TileType<FloorTile> floorTileType = new TileType<>(FloorTile.class, floorSprite);
-
-        TileType[] tileTypes = {floorTileType};
-        int tileSize = 50;
-        int tilesMap[][] = {
-                {-1},
-                {-1},
-        };
-        tileMap = new TileMap(tileSize, tileTypes, tilesMap);
     }
 
     public void initializeHumans() {

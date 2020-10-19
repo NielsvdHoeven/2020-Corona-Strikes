@@ -1,5 +1,9 @@
 package world;
 
+import nl.han.ica.oopg.objects.Sprite;
+import nl.han.ica.oopg.tile.TileMap;
+import nl.han.ica.oopg.tile.TileType;
+
 public class Maps {
     private WorldApp world;
     private int hiddenPlatform = -1;
@@ -10,14 +14,41 @@ public class Maps {
         this.world = world;
     }
 
+    public void initializeTileMap() {
+        // Load Sprites
+        Sprite floorSprite = new Sprite(world.MEDIA_URL.concat("platformPack_tile040.png"));
+        // Create tile types with the right Tile class and sprite
+        TileType<FloorTile> floorTileType = new TileType<>(FloorTile.class, floorSprite);
+
+        TileType[] tileTypes = {floorTileType};
+        int tileSize = 50;
+        int tilesMap[][] = getMap();
+        world.tileMap = new TileMap(tileSize, tileTypes, tilesMap);
+    }
+
+    public void initializeStandardTileMap() {
+        // Load Sprites
+        Sprite floorSprite = new Sprite(world.MEDIA_URL.concat("platformPack_tile040.png"));
+        // Create tile types with the right Tile class and sprite
+        TileType<FloorTile> floorTileType = new TileType<>(FloorTile.class, floorSprite);
+
+        TileType[] tileTypes = {floorTileType};
+        int tileSize = 50;
+        int tilesMap[][] = {
+                {-1},
+                {-1},
+        };
+        world.tileMap = new TileMap(tileSize, tileTypes, tilesMap);
+    }
+
     public int[][] getMap() {
         return map;
     }
 
-    public void setMap(){
-        if(level == 1){
+    public void setMap() {
+        if (level == 1) {
             map = map1();
-        } else if(level == 2){
+        } else if (level == 2) {
             map = map2();
         }
     }
@@ -43,7 +74,7 @@ public class Maps {
         };
     }
 
-    public int[][] map1(){
+    public int[][] map1() {
         return new int[][]{
                 {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
                 {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},

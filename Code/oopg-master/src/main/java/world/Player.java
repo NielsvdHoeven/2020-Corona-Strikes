@@ -124,8 +124,8 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
                     System.out.println(nLives);
                 }
             }
-            if(g instanceof Human){
-                if(collision.checkCollision(g, this)){
+            if (g instanceof Human) {
+                if (collision.checkCollision(g, this)) {
 
                 }
             }
