@@ -1,14 +1,18 @@
 package world;
 
+import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
+
+import java.util.List;
 
 public class Maps {
     private WorldApp world;
     private int hiddenPlatform = -1;
     private int level = 1;
     private int[][] map;
+    private Collision collision = new Collision();
 
     public Maps(WorldApp world) {
         this.world = world;
@@ -93,6 +97,10 @@ public class Maps {
                 {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
         };
+    }
+
+    public void setHiddenPlatform(int value){
+        this.hiddenPlatform = value;
     }
 
     public int getLevel() {

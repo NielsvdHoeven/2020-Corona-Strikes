@@ -19,7 +19,6 @@ public class WorldApp extends GameEngine {
     Sanitizer sanitizer;
 
     public int level = 0;
-    private int hiddenPlatform = -1;
 
     public static void main(String[] args) {
         WorldApp wa = new WorldApp();
@@ -59,7 +58,6 @@ public class WorldApp extends GameEngine {
     public void update() {
         maps.setMap();
         maps.initializeTileMap();
-        hiddenPlatform = knop.getPlatform();
     }
 
     @Override

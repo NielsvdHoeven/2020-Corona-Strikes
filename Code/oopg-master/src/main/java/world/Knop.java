@@ -35,7 +35,7 @@ public class Knop extends AnimatedSpriteObject implements ICollidableWithGameObj
             if (g instanceof Player) {
                 if (collision.checkCollision(g, this)) {
                     setCurrentFrameIndex(1);
-                    platform = 0;
+                    world.maps.setHiddenPlatform(0);
                 }
             }
         }
