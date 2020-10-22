@@ -1,11 +1,9 @@
 package world;
 
-import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
 
-import java.util.List;
 
 public class Maps {
     private WorldApp world;
@@ -50,7 +48,11 @@ public class Maps {
     }
 
     public void setMap() {
-        if (level == 1) {
+        if (level == 0) {
+            initializeStandardTileMap();
+            world.textSize(30);
+            world.text("2020: Corona Strikes", world.width / 2, world.height / 3);
+        } else if (level == 1) {
             map = map1();
         } else if (level == 2) {
             map = map2();
@@ -99,7 +101,7 @@ public class Maps {
         };
     }
 
-    public void setHiddenPlatform(int value){
+    public void setHiddenPlatform(int value) {
         this.hiddenPlatform = value;
     }
 
