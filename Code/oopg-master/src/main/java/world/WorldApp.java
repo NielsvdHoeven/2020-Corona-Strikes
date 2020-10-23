@@ -64,7 +64,6 @@ public class WorldApp extends GameEngine {
     public void update() {
         maps.setMap();
         maps.initializeTileMap();
-        initializeHumans();
     }
 
     @Override
@@ -77,22 +76,8 @@ public class WorldApp extends GameEngine {
     }
 
     public void mousePressed() {
-        maps.setLevel(maps.getLevel() + 1);
+
     }
 
-    public void initializeHumans() {
-        if (maps.getLevel() == 1) {
-            humans[0].setPosition(500, 300);
-            humans[1].setPosition(100, 600);
-        }
 
-        if (maps.getLevel() == 2) {
-            for (int i = 0; i < humans.length; i++) {
-                humans[i].setInfected(false);
-            }
-            humans[0].setPosition(600, 400);
-            humans[1].setPosition(100, 100);
-
-        }
-    }
 }

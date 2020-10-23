@@ -18,8 +18,8 @@ public class Portal extends AnimatedSpriteObject implements ICollidableWithGameO
         super(new Sprite(world.MEDIA_URL.concat("portals.png")), 4);
 
         this.world = world;
-        this.x = 400;
-        this.y = 400;
+        this.x = 1050;
+        this.y = 500;
 
     }
 
@@ -32,10 +32,13 @@ public class Portal extends AnimatedSpriteObject implements ICollidableWithGameO
     public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
         for (GameObject g : collidedGameObjects) {
             if (g instanceof Player) {
-                world.maps.setLevel(world.maps.getLevel() + 1);
-                world.player.setPosition(0, 600);
-                System.out.println(world.maps.getLevel());
-                setCurrentFrameIndex(getCurrentFrameIndex() + 1);
+                if (world.maps.checkAllInfected(world.humans)) {
+                    world.maps.setLevel(world.maps.getLevel() + 1);
+                    world.maps.setReset(true);
+                    world.player.setPosition(0, 600);
+                    System.out.println(world.maps.getLevel());
+                    setCurrentFrameIndex(getCurrentFrameIndex() + 1);
+                }
             }
         }
     }
