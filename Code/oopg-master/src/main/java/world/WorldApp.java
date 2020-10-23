@@ -41,7 +41,7 @@ public class WorldApp extends GameEngine {
         player.setY(500);
         player.setX(700);
 
-        addGameObject(sanitizer);
+//        addGameObject(sanitizer);
         addGameObject(knop);
         addGameObject(player);
         addGameObject(portal);
