@@ -18,14 +18,22 @@ public class Portal extends AnimatedSpriteObject implements ICollidableWithGameO
         super(new Sprite(world.MEDIA_URL.concat("portals.png")), 4);
 
         this.world = world;
-        this.x = 1050;
-        this.y = 500;
-
+        setCurrentFrameIndex(1);
     }
 
     @Override
     public void update() {
+        initializePortal();
+    }
 
+    public void initializePortal() {
+        if (world.maps.checkAllInfected(world.humans)) {
+            setCurrentFrameIndex(0);
+        } else {
+            setCurrentFrameIndex(1);
+        }
+        x = 1050;
+        y = 500;
     }
 
     @Override
@@ -37,7 +45,6 @@ public class Portal extends AnimatedSpriteObject implements ICollidableWithGameO
                     world.maps.setReset(true);
                     world.player.setPosition(0, 600);
                     System.out.println(world.maps.getLevel());
-                    setCurrentFrameIndex(getCurrentFrameIndex() + 1);
                 }
             }
         }

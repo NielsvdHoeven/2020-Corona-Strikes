@@ -3,9 +3,6 @@ package world;
 // deze 3 classes moet je geimporteerd hebben om het te laten werken.
 
 import nl.han.ica.oopg.engine.GameEngine;
-import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.tile.TileMap;
-import nl.han.ica.oopg.tile.TileType;
 import nl.han.ica.oopg.view.View;
 
 public class WorldApp extends GameEngine {
@@ -38,8 +35,7 @@ public class WorldApp extends GameEngine {
         maps = new Maps(this);
         sanitizer = new Sanitizer(800, 100);
         portal = new Portal(this);
-        player.setY(500);
-        player.setX(700);
+        player.setPosition(0, 600);
 
 //        addGameObject(sanitizer);
         addGameObject(knop);
