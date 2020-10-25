@@ -34,7 +34,7 @@ public class WorldApp extends GameEngine {
         maps = new Maps(this);
         sanitizer = new Sanitizer(800, 100);
         portal = new Portal(this);
-        player.setPosition(0, 600);
+        player.setPosition(100, 600);
 
 //        addGameObject(sanitizer);
         addGameObject(knop);

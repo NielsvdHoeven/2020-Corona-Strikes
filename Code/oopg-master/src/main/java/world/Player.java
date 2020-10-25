@@ -113,6 +113,12 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
                 } catch (TileNotFoundException e) {
                     e.printStackTrace();
                 }
+//                try {
+//                    vector = world.getTileMap().getTilePixelLocation(ct.getTile());
+//                    setY(vector.y + getHeight());
+//                } catch (TileNotFoundException e) {
+//                    e.printStackTrace();
+//                }
             }
         }
     }
