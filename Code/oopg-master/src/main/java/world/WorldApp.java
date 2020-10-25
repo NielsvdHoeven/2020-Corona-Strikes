@@ -1,6 +1,7 @@
 package world;
 
 // deze 3 classes moet je geimporteerd hebben om het te laten werken.
+
 import nl.han.ica.oopg.engine.GameEngine;
 import nl.han.ica.oopg.objects.Sprite;
 import nl.han.ica.oopg.tile.TileMap;
