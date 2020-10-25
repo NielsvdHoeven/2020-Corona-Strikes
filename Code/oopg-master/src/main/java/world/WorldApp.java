@@ -15,8 +15,7 @@ public class WorldApp extends GameEngine {
     Maps maps;
     Sanitizer sanitizer;
     Portal portal;
-
-    public int level = 0;
+    
 
     public static void main(String[] args) {
         WorldApp wa = new WorldApp();
@@ -74,6 +73,5 @@ public class WorldApp extends GameEngine {
     public void mousePressed() {
 
     }
-
 
 }
