@@ -24,9 +24,14 @@ public class Human extends AnimatedSpriteObject implements ICollidableWithGameOb
         this.y = y;
     }
 
+    public boolean getInfected() {
+        return infected;
+    }
+
     public void setInfected(boolean infected) {
         this.infected = infected;
     }
+
 
     @Override
     public void update() {
@@ -34,6 +39,34 @@ public class Human extends AnimatedSpriteObject implements ICollidableWithGameOb
 
         if (infected) {
             setCurrentFrameIndex(1);
+        } else {
+            setCurrentFrameIndex(0);
+        }
+
+        initializeHumans();
+    }
+
+    public void initializeHumans() {
+        if (world.maps.getReset()) {
+            for (int i = 0; i < world.humans.length; i++) {
+                world.humans[i].setInfected(false);
+            }
+        }
+        if (world.maps.getLevel() == 1) {
+            world.humans[0].setPosition(500, 300);
+            world.humans[1].setPosition(950, 100);
+        }
+        if (world.maps.getLevel() == 2) {
+            world.maps.setReset(false);
+
+            world.humans[0].setPosition(800, 50);
+            world.humans[1].setPosition(50, 50);
+        }
+        if (world.maps.getLevel() == 3) {
+            world.maps.setReset(false);
+
+            world.humans[0].setPosition(600, 50);
+            world.humans[1].setPosition(800, 600);
         }
     }
 

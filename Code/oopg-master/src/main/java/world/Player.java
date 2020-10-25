@@ -34,6 +34,11 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
         gameObjectCollisionOccurred(world.getGameObjectItems());
     }
 
+    public void setPosition(int x, int y){
+        this.x = x;
+        this.y = y;
+    }
+
     public void setAanHetSpringen(boolean waarde) {
         this.aanHetSpringen = waarde;
     }
@@ -124,8 +129,8 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
                     System.out.println(nLives);
                 }
             }
-            if(g instanceof Human){
-                if(collision.checkCollision(g, this)){
+            if (g instanceof Human) {
+                if (collision.checkCollision(g, this)) {
 
                 }
             }

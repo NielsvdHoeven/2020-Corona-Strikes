@@ -42,7 +42,7 @@ public abstract class GameEngine extends PApplet {
     /**
      * Instance of TileMap.
      */
-    protected TileMap tileMap;
+    public TileMap tileMap;
 
     /**
      * Thread is used to keep the update method running.
