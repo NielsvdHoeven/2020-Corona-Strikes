@@ -28,7 +28,7 @@ public class Portal extends AnimatedSpriteObject implements ICollidableWithGameO
 
     public void initializePortal() {
         if (world.maps.checkAllInfected(world.humans)) {
-            setCurrentFrameIndex(0);
+            setCurrentFrameIndex(3);
         } else {
             setCurrentFrameIndex(1);
         }
