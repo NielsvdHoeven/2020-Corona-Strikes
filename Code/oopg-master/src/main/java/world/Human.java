@@ -32,7 +32,6 @@ public class Human extends AnimatedSpriteObject implements ICollidableWithGameOb
         this.infected = infected;
     }
 
-
     @Override
     public void update() {
         gameObjectCollisionOccurred(world.getGameObjectItems());
@@ -53,6 +52,7 @@ public class Human extends AnimatedSpriteObject implements ICollidableWithGameOb
             }
         }
         if (world.maps.getLevel() == 1) {
+
             world.humans[0].setPosition(500, 300);
             world.humans[1].setPosition(950, 100);
         }

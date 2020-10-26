@@ -17,6 +17,10 @@ public class Boss extends SpriteObject {
 
     }
 
+    public void drawHealthBar(){
+
+    }
+
     public int getHealth() {
         return health;
     }

@@ -15,7 +15,8 @@ public class WorldApp extends GameEngine {
     Maps maps;
     Sanitizer sanitizer;
     Portal portal;
-    
+    View view;
+
 
     public static void main(String[] args) {
         WorldApp wa = new WorldApp();
@@ -34,18 +35,19 @@ public class WorldApp extends GameEngine {
         maps = new Maps(this);
         sanitizer = new Sanitizer(800, 100);
         portal = new Portal(this);
+
         player.setPosition(100, 600);
 
-//        addGameObject(sanitizer);
         addGameObject(knop);
         addGameObject(player);
         addGameObject(portal);
+
         for (int i = 0; i < humans.length; i++) {
             humans[i] = new Human(this);
             addGameObject(humans[i]);
         }
 
-        View view = new View(worldWidth, worldHeight);
+        view = new View(worldWidth, worldHeight);
 
         view.setBackground(loadImage(MEDIA_URL.concat("background.jpg")));
 
