@@ -19,19 +19,6 @@ public class Human extends AnimatedSpriteObject implements ICollidableWithGameOb
         this.world = world;
     }
 
-    public void setPosition(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public boolean getInfected() {
-        return infected;
-    }
-
-    public void setInfected(boolean infected) {
-        this.infected = infected;
-    }
-
     @Override
     public void update() {
         gameObjectCollisionOccurred(world.getGameObjectItems());
@@ -79,5 +66,18 @@ public class Human extends AnimatedSpriteObject implements ICollidableWithGameOb
                 }
             }
         }
+    }
+
+    public void setPosition(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public boolean getInfected() {
+        return infected;
+    }
+
+    public void setInfected(boolean infected) {
+        this.infected = infected;
     }
 }

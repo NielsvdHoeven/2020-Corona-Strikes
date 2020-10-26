@@ -36,15 +36,6 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
         boundaries();
     }
 
-    public void setPosition(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
-
-    public int getNPotions() {
-        return nPotions;
-    }
-
     public void boundaries() {
         if (getX() < 0) {
             setxSpeed(0);
@@ -101,6 +92,7 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
         }
     }
 
+    @Override
     public void tileCollisionOccurred(List<CollidedTile> collidedTiles) {
         PVector vector;
         for (CollidedTile ct : collidedTiles) {
@@ -134,6 +126,19 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
                 }
             }
         }
+    }
+
+    public void setPosition(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public void setnPotions(int value){
+        this.nPotions = value;
+    }
+
+    public int getNPotions() {
+        return nPotions;
     }
 }
 

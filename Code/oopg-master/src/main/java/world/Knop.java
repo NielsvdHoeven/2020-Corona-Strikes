@@ -10,16 +10,11 @@ import java.util.List;
 public class Knop extends AnimatedSpriteObject implements ICollidableWithGameObjects {
     private WorldApp world;
     private Collision collision = new Collision();
-    private int platform = -1;
 
     public Knop(WorldApp world, int totalFrames) {
 
         super(new Sprite(WorldApp.MEDIA_URL.concat("platformPack_tile053.png")), totalFrames);
         this.world = world;
-    }
-
-    public int getPlatform() {
-        return platform;
     }
 
     public void setPosition(int x, int y) {

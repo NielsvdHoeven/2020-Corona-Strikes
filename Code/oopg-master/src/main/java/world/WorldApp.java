@@ -16,6 +16,7 @@ public class WorldApp extends GameEngine {
     Maps maps;
     Sanitizer sanitizer;
     Portal portal;
+    Potion potion;
     View view;
 
 
@@ -31,6 +32,7 @@ public class WorldApp extends GameEngine {
         int worldWidth = 1200;
         int worldHeight = 800;
 
+        potion = new Potion(this);
         player = new Player(this);
         knop = new Knop(this, 1);
         maps = new Maps(this);
@@ -42,6 +44,7 @@ public class WorldApp extends GameEngine {
         addGameObject(knop);
         addGameObject(player);
         addGameObject(portal);
+        addGameObject(potion);
 
         for (int i = 0; i < humans.length; i++) {
             humans[i] = new Human(this);
@@ -60,6 +63,7 @@ public class WorldApp extends GameEngine {
 
     @Override
     public void update() {
+        System.out.println(player.getNPotions());
         maps.setMap();
         maps.initializeTileMap();
     }
