@@ -3,6 +3,7 @@ package world;
 // deze 3 classes moet je geimporteerd hebben om het te laten werken.
 
 import nl.han.ica.oopg.engine.GameEngine;
+import nl.han.ica.oopg.objects.TextObject;
 import nl.han.ica.oopg.view.View;
 
 public class WorldApp extends GameEngine {

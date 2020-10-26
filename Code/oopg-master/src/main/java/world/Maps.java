@@ -58,6 +58,7 @@ public class Maps {
     }
 
     public void setMap() {
+
         switch (level) {
             case 0:
 
