@@ -24,7 +24,7 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
     public Player(WorldApp world) {
         // Met `.concat()` plak je 2 strings aan elkaar.
         // De methode returned een nieuwe String terug.
-        super(new Sprite(WorldApp.MEDIA_URL.concat("wise-old-man.png")));
+        super(new Sprite(WorldApp.MEDIA_URL.concat("corona_alive.png")));
         this.world = world;
     }
 

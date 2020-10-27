@@ -79,19 +79,13 @@ public class WorldApp extends GameEngine {
 
     private void refreshDashboard() {
         dashboardText.setText("Current Level: " + maps.getLevel());
-        switch (maps.getLevel()) {
-            case 1:
-                dashboardText.setColor(0);
-                break;
-            case 2:
-        }
     }
 
     public void setBackground() {
         if (maps.getReset()) {
             switch (maps.getLevel()) {
                 case 2:
-                    view.setBackground(loadImage(MEDIA_URL.concat("background2.jpg")));
+                    view.setBackground(loadImage(MEDIA_URL.concat("pisa.jpeg")));
                     break;
                 case 3:
                     view.setBackground(loadImage(MEDIA_URL.concat("berlin.jpg")));
