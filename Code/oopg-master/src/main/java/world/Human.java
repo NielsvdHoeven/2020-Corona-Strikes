@@ -38,22 +38,29 @@ public class Human extends AnimatedSpriteObject implements ICollidableWithGameOb
                 world.humans[i].setInfected(false);
             }
         }
-        if (world.maps.getLevel() == 1) {
+        switch (world.maps.getLevel()) {
+            case 1:
+                world.humans[0].setPosition(500, 300);
+                world.humans[1].setPosition(950, 150);
+                break;
+            case 2:
+                world.maps.setReset(false);
 
-            world.humans[0].setPosition(500, 300);
-            world.humans[1].setPosition(950, 100);
-        }
-        if (world.maps.getLevel() == 2) {
-            world.maps.setReset(false);
+                world.humans[0].setPosition(800, 50);
+                world.humans[1].setPosition(50, 50);
+                break;
+            case 3:
+                world.maps.setReset(false);
 
-            world.humans[0].setPosition(800, 50);
-            world.humans[1].setPosition(50, 50);
-        }
-        if (world.maps.getLevel() == 3) {
-            world.maps.setReset(false);
+                world.humans[0].setPosition(600, 100);
+                world.humans[1].setPosition(1000, 250);
+                break;
+            case 4:
+                world.maps.setReset(false);
 
-            world.humans[0].setPosition(600, 50);
-            world.humans[1].setPosition(800, 600);
+                world.humans[0].setPosition(0, 50);
+                world.humans[1].setPosition(100, 50);
+                break;
         }
     }
 

@@ -33,10 +33,18 @@ public class Knop extends AnimatedSpriteObject implements ICollidableWithGameObj
             world.maps.setHiddenPlatform(-1);
             setCurrentFrameIndex(0);
         }
-        if (world.maps.getLevel() == 1) {
-            setPosition(300, 386);
-        } else if (world.maps.getLevel() == 2) {
-            setPosition(600, 686);
+        switch (world.maps.getLevel()) {
+            case 1:
+                setPosition(350, 386);
+                break;
+            case 2:
+                setPosition(-100, -100);
+                break;
+            case 3:
+                setPosition(600, 686);
+                break;
+            case 4:
+                setPosition(830, 136);
         }
     }
 
