@@ -1,10 +1,10 @@
 package world;
 
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.objects.TextObject;
+
+import nl.han.ica.oopg.sound.Sound;
 import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
-import org.w3c.dom.Text;
 
 public class Maps {
     private WorldApp world;

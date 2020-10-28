@@ -4,6 +4,8 @@ package world;
 
 import nl.han.ica.oopg.dashboard.Dashboard;
 import nl.han.ica.oopg.engine.GameEngine;
+import nl.han.ica.oopg.objects.Sprite;
+import nl.han.ica.oopg.sound.Sound;
 import nl.han.ica.oopg.view.View;
 
 public class WorldApp extends GameEngine {
@@ -19,6 +21,10 @@ public class WorldApp extends GameEngine {
     Potion potion;
     View view;
     TextObject dashboardText;
+    TextObject titelText;
+    TextObject startText;
+    Dashboard titelDashboard;
+    Dashboard levelDashboard;
 
     public static void main(String[] args) {
         WorldApp wa = new WorldApp();
@@ -32,6 +38,14 @@ public class WorldApp extends GameEngine {
         int worldWidth = 1200;
         int worldHeight = 800;
 
+
+        createTitelDashboard(worldWidth, worldHeight);
+
+
+        for (int i = 0; i < humans.length; i++) {
+            humans[i] = new Human(this);
+            addGameObject(humans[i]);
+        }
         potion = new Potion(this);
         player = new Player(this);
         knop = new Knop(this, 1);
@@ -39,18 +53,14 @@ public class WorldApp extends GameEngine {
         sanitizer = new Sanitizer(800, 100);
         portal = new Portal(this);
 
-        createDashboard(worldWidth, 100);
-
         player.setPosition(100, 600);
 
         addGameObject(knop);
         addGameObject(player);
         addGameObject(portal);
 
-        for (int i = 0; i < humans.length; i++) {
-            humans[i] = new Human(this);
-            addGameObject(humans[i]);
-        }
+        createLevelDashboard(worldWidth, 100);
+
 
         view = new View(worldWidth, worldHeight);
 
@@ -67,17 +77,26 @@ public class WorldApp extends GameEngine {
         maps.setMap();
         maps.initializeTileMap();
         setBackground();
-        refreshDashboard();
+        refreshLevelDashboard();
     }
 
-    private void createDashboard(int dashboardWidth, int dashboardHeight) {
-        Dashboard dashboard = new Dashboard(0, 0, dashboardWidth, dashboardHeight);
-        dashboardText = new TextObject("");
-        dashboard.addGameObject(dashboardText);
-        addDashboard(dashboard);
+    private void createTitelDashboard(int dashboardWidth, int dashboardHeight) {
+        titelDashboard = new Dashboard(0, 0, dashboardWidth, dashboardHeight);
+        titelText = new TextObject("2020: Corona Strikes", 600, 200);
+        startText = new TextObject("Click to start!", 600, 600);
+        titelDashboard.addGameObject(startText);
+        titelDashboard.addGameObject(titelText);
+        titelDashboard.setBackgroundImage(new Sprite(MEDIA_URL.concat("corona_map.jpg")));
+        addDashboard(titelDashboard);
     }
 
-    private void refreshDashboard() {
+    private void createLevelDashboard(int dashboardWidth, int dashboardHeight) {
+        levelDashboard = new Dashboard(0, 0, dashboardWidth, dashboardHeight);
+        dashboardText = new TextObject("", 0, 0);
+        levelDashboard.addGameObject(dashboardText);
+    }
+
+    private void refreshLevelDashboard() {
         dashboardText.setText("Current Level: " + maps.getLevel());
     }
 
@@ -110,6 +129,8 @@ public class WorldApp extends GameEngine {
 
     public void mousePressed() {
 
+        deleteDashboard(titelDashboard);
+        addDashboard(levelDashboard);
     }
 
 }

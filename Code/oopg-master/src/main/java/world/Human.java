@@ -32,6 +32,10 @@ public class Human extends AnimatedSpriteObject implements ICollidableWithGameOb
         initializeHumans();
     }
 
+    /**
+     * plaatst de humans op de correcte plek in ieder level
+     * en reset de humans aan het begin van ieder level
+     */
     public void initializeHumans() {
         if (world.maps.getReset()) {
             for (int i = 0; i < world.humans.length; i++) {
@@ -64,6 +68,9 @@ public class Human extends AnimatedSpriteObject implements ICollidableWithGameOb
         }
     }
 
+    /**
+     * Checkt de collision met de Player
+     */
     @Override
     public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
         for (GameObject g : collidedGameObjects) {
@@ -75,15 +82,24 @@ public class Human extends AnimatedSpriteObject implements ICollidableWithGameOb
         }
     }
 
+    /**
+     * Zet de position van de Human
+     */
     public void setPosition(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
+    /**
+     * returnt de boolean infected
+     */
     public boolean getInfected() {
         return infected;
     }
 
+    /**
+     * zet de boolean infected
+     */
     public void setInfected(boolean infected) {
         this.infected = infected;
     }

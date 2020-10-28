@@ -15,11 +15,9 @@ import java.util.List;
 public class Player extends SpriteObject implements ICollidableWithTiles, ICollidableWithGameObjects {
     private WorldApp world;
     private Toets[] toetsen = {new Toets((char) world.LEFT, false), new Toets((char) world.RIGHT, false), new Toets((char) world.UP, false), new Toets((char) world.DOWN, false)};
-    private boolean aanHetSpringen;
     private Collision collision = new Collision();
     private int nPotions = 3;
     private int nLives = 3;
-    private int nBesmet = 0;
 
     public Player(WorldApp world) {
         // Met `.concat()` plak je 2 strings aan elkaar.
@@ -35,6 +33,11 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
         gameObjectCollisionOccurred(world.getGameObjectItems());
         boundaries();
     }
+
+    /**
+     * Deze functie zorgt ervoor dat de player niet buiten het spel
+     * window kan bewegen
+     */
 
     public void boundaries() {
         if (getX() < 0) {
@@ -55,6 +58,9 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
         }
     }
 
+    /**
+     * Houd bij welke key er losgelaten word en verandert daarmee ook de pressed boolean
+     */
     public void keyReleased() {
         for (Toets toets : toetsen) {
             if (world.key == world.CODED) {
@@ -65,6 +71,9 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
         }
     }
 
+    /**
+     * Houd bij welke key er ingedrukt word en verandert daarmee ook de pressed boolean
+     */
     public void keyPressed() {
         for (Toets toets : toetsen) {
             if (world.key == world.CODED) {
@@ -75,6 +84,9 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
         }
     }
 
+    /**
+     * Zorgt dat de speler kan bewegen aan de hand van ingedrukte toetsen
+     */
     public void beweeg() {
         setxSpeed(0);
         if (toetsen[0].getPressed()) {
@@ -85,13 +97,15 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
         }
         if (toetsen[2].getPressed()) {
             setySpeed(-10);
-            aanHetSpringen = true;
         }
         if (toetsen[3].getPressed()) {
             setySpeed(4);
         }
     }
 
+    /**
+     * Checkt de collision met de tiles
+     */
     @Override
     public void tileCollisionOccurred(List<CollidedTile> collidedTiles) {
         PVector vector;
@@ -113,6 +127,9 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
         }
     }
 
+    /**
+     * Checkt de collision met de sanitizer
+     */
     @Override
     public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
         for (GameObject g : collidedGameObjects) {
@@ -128,15 +145,24 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
         }
     }
 
+    /**
+     * Zet de position van de speler
+     */
     public void setPosition(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public void setnPotions(int value){
+    /**
+     * Zet het aantal potions
+     */
+    public void setnPotions(int value) {
         this.nPotions = value;
     }
 
+    /**
+     * return het aantal potions
+     */
     public int getNPotions() {
         return nPotions;
     }

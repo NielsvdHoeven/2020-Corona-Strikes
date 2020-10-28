@@ -7,12 +7,16 @@ public class TextObject extends GameObject {
 
     private String text;
     private int color = 0;
-    public TextObject(String text) {
+    private int x, y;
+    public TextObject(String text, int x, int y) {
         this.text = text;
+        this.x = x;
+        this.y = y;
     }
 
     public void setText(String text) {
         this.text = text;
+
     }
 
     @Override
@@ -22,12 +26,8 @@ public class TextObject extends GameObject {
 
     @Override
     public void draw(PGraphics g) {
-        g.textAlign(g.LEFT, g.TOP);
+        g.textAlign(g.CENTER, g.TOP);
         g.textSize(40);
-        g.text(text, getX(), getY());
-    }
-
-    public void setColor(int color){
-        this.color = color;
+        g.text(text, x, y);
     }
 }
