@@ -14,7 +14,7 @@ import java.util.List;
 
 public class Player extends SpriteObject implements ICollidableWithTiles, ICollidableWithGameObjects {
     private WorldApp world;
-    private Toets[] toetsen = {new Toets((char) world.LEFT, false), new Toets((char) world.RIGHT, false), new Toets((char) world.UP, false), new Toets((char) world.DOWN, false)};
+    private Key[] toetsen = {new Key((char) world.LEFT, false), new Key((char) world.RIGHT, false), new Key((char) world.UP, false), new Key((char) world.DOWN, false)};
     private Collision collision = new Collision();
     private int nPotions = 3;
     private int nLives = 3;
@@ -62,10 +62,10 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
      * Houd bij welke key er losgelaten word en verandert daarmee ook de pressed boolean
      */
     public void keyReleased() {
-        for (Toets toets : toetsen) {
+        for (Key key : toetsen) {
             if (world.key == world.CODED) {
-                if (world.keyCode == toets.getToets()) {
-                    toets.setPressed(false);
+                if (world.keyCode == key.getKey()) {
+                    key.setPressed(false);
                 }
             }
         }
@@ -75,10 +75,10 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
      * Houd bij welke key er ingedrukt word en verandert daarmee ook de pressed boolean
      */
     public void keyPressed() {
-        for (Toets toets : toetsen) {
+        for (Key key : toetsen) {
             if (world.key == world.CODED) {
-                if (world.keyCode == toets.getToets()) {
-                    toets.setPressed(true);
+                if (world.keyCode == key.getKey()) {
+                    key.setPressed(true);
                 }
             }
         }

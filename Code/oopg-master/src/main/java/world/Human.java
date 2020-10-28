@@ -60,6 +60,12 @@ public class Human extends AnimatedSpriteObject implements ICollidableWithGameOb
                 world.humans[0].setPosition(0, 50);
                 world.humans[1].setPosition(100, 50);
                 break;
+            case 5:
+                world.humans[0].setPosition(-200, -200);
+                world.humans[1].setPosition(-200, -200);
+                world.humans[0].setInfected(true);
+                world.humans[1].setInfected(true);
+                break;
         }
     }
 

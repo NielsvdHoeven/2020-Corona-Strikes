@@ -4,7 +4,6 @@ import nl.han.ica.oopg.collision.ICollidableWithGameObjects;
 import nl.han.ica.oopg.objects.AnimatedSpriteObject;
 import nl.han.ica.oopg.objects.GameObject;
 import nl.han.ica.oopg.objects.Sprite;
-import nl.han.ica.oopg.objects.SpriteObject;
 
 import java.util.List;
 
@@ -26,6 +25,9 @@ public class Portal extends AnimatedSpriteObject implements ICollidableWithGameO
         initializePortal();
     }
 
+    /**
+     * initializeert de portal en zorgt dat het werkt
+     */
     public void initializePortal() {
         if (world.maps.checkAllInfected(world.humans)) {
             setCurrentFrameIndex(3);
@@ -36,6 +38,10 @@ public class Portal extends AnimatedSpriteObject implements ICollidableWithGameO
         y = 500;
     }
 
+    /**
+     * checkt de collision met de speler
+     * checkt tegelijk of alle humans infected zijn
+     */
     @Override
     public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
         for (GameObject g : collidedGameObjects) {
@@ -45,6 +51,7 @@ public class Portal extends AnimatedSpriteObject implements ICollidableWithGameO
                     world.maps.setReset(true);
                     world.player.setPosition(0, 600);
                     System.out.println(world.maps.getLevel());
+
                 }
             }
         }

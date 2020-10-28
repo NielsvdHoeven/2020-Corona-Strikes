@@ -2,7 +2,6 @@ package world;
 
 import nl.han.ica.oopg.objects.Sprite;
 
-import nl.han.ica.oopg.sound.Sound;
 import nl.han.ica.oopg.tile.TileMap;
 import nl.han.ica.oopg.tile.TileType;
 
@@ -17,6 +16,9 @@ public class Maps {
         this.world = world;
     }
 
+    /**
+     * zorgt ervoor dat de maps verschillende maps geprint worden
+     */
     public void initializeTileMap() {
         // Load Sprites
         Sprite floorSprite = new Sprite(world.MEDIA_URL.concat("platformPack_tile040.png"));
@@ -29,6 +31,10 @@ public class Maps {
         world.tileMap = new TileMap(tileSize, tileTypes, tilesMap);
     }
 
+    /**
+     * initializeert de standaard tilemap die nodig is
+     * zonder deze functie kan je de tilemap niet zomaar veranderen
+     */
     public void initializeStandardTileMap() {
         // Load Sprites
         Sprite floorSprite = new Sprite(world.MEDIA_URL.concat("platformPack_tile040.png"));
@@ -44,6 +50,9 @@ public class Maps {
         world.tileMap = new TileMap(tileSize, tileTypes, tilesMap);
     }
 
+    /**
+     * checkt of alle humans in het spel geinfect zijn
+     */
     public boolean checkAllInfected(Human[] humans) {
         for (int i = 0; i < humans.length; i++) {
             if (!humans[i].getInfected()) {
@@ -53,6 +62,9 @@ public class Maps {
         return true;
     }
 
+    /**
+     * zorgt ervoor dat de correcte map geladen word bij het bijbehorende level
+     */
     public void setMap() {
         switch (level) {
             case 0:
@@ -70,9 +82,14 @@ public class Maps {
             case 4:
                 map = maps(4);
                 break;
+            case 5:
+                map = maps(5);
         }
     }
 
+    /**
+     * functie die aan de hand van het level de goede map returnt
+     */
     public int[][] maps(int map) {
         switch (map) {
             case 1:
@@ -145,13 +162,33 @@ public class Maps {
                         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
                         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
                         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
-                        {-1, -1, -1, -1, -1, -1, -1, 0, 0,  -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, -1, -1, -1, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
                         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
                         {-1, -1, -1, -1, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
                         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
                         {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
                         {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
                 };
+            case 5:
+                return new int[][]{
+                        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {0, 0, 0, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 0, 0},
+                        {-1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, 0, 0, 0, 0, 0, 0, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, 0, 0, 0, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {-1, -1, -1, -1, -1, -1, -1, 0, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1},
+                        {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+                };
+
             default:
                 return new int[][]{
                         {},
@@ -160,26 +197,45 @@ public class Maps {
         }
     }
 
+    /**
+     * zorgt ervoor dat de onzichtbare platformen tevoorschijn kunnen komen
+     * door het veranderen van de waarde
+     */
     public void setHiddenPlatform(int value) {
         this.hiddenPlatform = value;
     }
 
+    /**
+     * returnt het level waar het spel op dat moment in zit
+     */
     public int getLevel() {
         return level;
     }
 
+    /**
+     * Zet het level
+     */
     public void setLevel(int level) {
         this.level = level;
     }
 
+    /**
+     * zet de reset waarde
+     */
     public void setReset(boolean value) {
         this.reset = value;
     }
 
+    /**
+     * Returnt de waarde van reset
+     */
     public boolean getReset() {
         return reset;
     }
 
+    /**
+     * returnt de huidige map
+     */
     public int[][] getMap() {
         return map;
     }
