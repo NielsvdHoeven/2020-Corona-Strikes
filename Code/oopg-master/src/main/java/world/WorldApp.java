@@ -14,9 +14,9 @@ public class WorldApp extends GameEngine {
 
     Player player;
     Human[] humans = new Human[2];
+    Sanitizer[] sanitizers = new Sanitizer[3];
     Knop knop;
     Maps maps;
-    Sanitizer sanitizer;
     Portal portal;
     Potion potion;
     View view;
@@ -46,11 +46,16 @@ public class WorldApp extends GameEngine {
             humans[i] = new Human(this);
             addGameObject(humans[i]);
         }
+
+        for (int i = 0; i < sanitizers.length; i++) {
+            sanitizers[i] = new Sanitizer(this);
+            addGameObject(sanitizers[i]);
+        }
+
         potion = new Potion(this);
         player = new Player(this);
         knop = new Knop(this, 1);
         maps = new Maps(this);
-        sanitizer = new Sanitizer(800, 100);
         portal = new Portal(this);
 
         player.setPosition(100, 600);

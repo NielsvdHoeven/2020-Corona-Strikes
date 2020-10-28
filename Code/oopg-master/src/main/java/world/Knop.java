@@ -28,6 +28,9 @@ public class Knop extends AnimatedSpriteObject implements ICollidableWithGameObj
         initializeKnop();
     }
 
+    /**
+     * zet de knop op de goede positie en reset hem in het begin van ieder level
+     */
     public void initializeKnop() {
         if (world.maps.getReset()) {
             world.maps.setHiddenPlatform(-1);
@@ -36,15 +39,22 @@ public class Knop extends AnimatedSpriteObject implements ICollidableWithGameObj
         switch (world.maps.getLevel()) {
             case 1:
                 setPosition(350, 386);
+                world.maps.setReset(false);
                 break;
             case 2:
                 setPosition(-100, -100);
+                world.maps.setReset(false);
+
                 break;
             case 3:
                 setPosition(600, 686);
+                world.maps.setReset(false);
+
                 break;
             case 4:
                 setPosition(830, 136);
+                world.maps.setReset(false);
+
         }
     }
 

@@ -136,10 +136,10 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
             if (g instanceof Sanitizer) {
                 if (collision.checkCollision(g, this)) {
                     System.out.println("sanitizer detected, resetting position");
-                    x = 0;
-                    y = 0;
-                    nLives--;
-                    System.out.println(nLives);
+                    setPosition(1, 600);
+                    for (int i = 0; i < world.humans.length; i++) {
+                        world.humans[i].setInfected(false);
+                    }
                 }
             }
         }

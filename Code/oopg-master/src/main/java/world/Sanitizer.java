@@ -9,19 +9,50 @@ import java.util.List;
 
 public class Sanitizer extends SpriteObject implements ICollidableWithGameObjects {
 
+    private WorldApp world;
 
-    public Sanitizer(float x, float y) {
-        super(new Sprite(WorldApp.MEDIA_URL.concat("rsz_sanitizer_goed.png")));
-        this.x = x;
-        this.y = y;
+    public Sanitizer(WorldApp world) {
+        super(new Sprite(WorldApp.MEDIA_URL.concat("san.png")));
+        this.world = world;
     }
 
     @Override
     public void update() {
+        initializeSanitizer();
     }
 
     @Override
     public void gameObjectCollisionOccurred(List<GameObject> collidedGameObjects) {
 
+    }
+
+    public void initializeSanitizer() {
+        switch (world.maps.getLevel()) {
+            case 1:
+                world.sanitizers[0].setPosition(900, 690);
+                world.sanitizers[1].setPosition(900, 490);
+                world.sanitizers[2].setPosition(-100, -100);
+                break;
+            case 2:
+                world.sanitizers[0].setPosition(900, 690);
+                world.sanitizers[1].setPosition(300, 290);
+                world.sanitizers[2].setPosition(200, 690);
+                break;
+            case 3:
+                world.sanitizers[0].setPosition(900, 690);
+                world.sanitizers[1].setPosition(100, 390);
+                world.sanitizers[2].setPosition(-100, -100);
+                break;
+            case 4:
+                world.sanitizers[0].setPosition(-100, -100);
+                world.sanitizers[1].setPosition(-100, -100);
+                world.sanitizers[2].setPosition(-100, -100);
+                break;
+        }
+    }
+
+    public void setPosition(int x, int y) {
+        this.x = x;
+        this.y = y;
     }
 }
