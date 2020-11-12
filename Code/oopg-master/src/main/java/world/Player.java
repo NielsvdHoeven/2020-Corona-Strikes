@@ -38,7 +38,6 @@ public class Player extends SpriteObject implements ICollidableWithTiles, IColli
      * Deze functie zorgt ervoor dat de player niet buiten het spel
      * window kan bewegen
      */
-
     public void boundaries() {
         if (getX() < 0) {
             setxSpeed(0);
